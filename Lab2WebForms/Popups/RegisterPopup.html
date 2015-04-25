@@ -1,0 +1,23 @@
+﻿<form method="post" name="regForm" ng-submit="register()">
+    <div class="modal-header">
+        <button ng-click="closePopup()" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Регистрация</h4>
+        <span ng-show="regForm.$invalid-repeat && regForm.confirmPassword.$dirty && elem === 'cp' " class="span-error">Пароли не совпадают</span>
+        <span ng-show="regForm.Login.$invalid && regForm.Login.$dirty && elem === 'l' " class="span-error">Логин - поле обязательно</span>
+        <span ng-show="regForm.Password.$invalid && regForm.Password.$dirty && elem === 'p'" class="span-error">Пароль - поле обязательно</span>
+    </div>
+    <div class="modal-body">
+        <div class="form-group pos-rel">
+            <input class="form-control field" placeholder="Логин" name="Login" ng-model="Login" ng-focus="setFocus('l')" required autofocus />
+        </div>
+        <div class="form-group pos-rel">
+            <input class="form-control field" type="password" placeholder="Пароль" name="Password" ng-model="Password" ng-focus="setFocus('p')" required />
+        </div>
+        <div class="form-group pos-rel">
+            <input class="form-control field" type="password" placeholder="Повторите пароль" name="confirmPassword" ng-model="confirmPassword" ng-focus="setFocus('cp')" repeat-password="Password" required repeat />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" ng-disabled="regForm.$invalid" class="btn btn-primary-custom">Зарегистрировать</button>
+    </div>
+</form>

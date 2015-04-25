@@ -1,0 +1,19 @@
+﻿<form method="post" name="editForm" ng-submit="saveChanges()">
+    <div class="modal-header">
+        <button ng-click="closePopup()" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Редактирование объявления</h4>
+        <span ng-show="editForm.Title.$invalid && editForm.Title.$dirty && elem === 't' " class="span-error add-form-error">Заголовок - поле обязательно</span>
+        <span ng-show="editForm.Text.$invalid && editForm.Text.$dirty && elem === 'tx'" class="span-error add-form-error">Текст - поле обязательно</span>
+    </div>
+    <div class="modal-body">
+        <div class="form-group pos-rel">
+            <input class="form-control field" placeholder="Заголовок" name="Title" ng-model="editPost.Title" ng-focus="setFocus('t')" required autofocus />
+        </div>
+        <div class="form-group pos-rel">
+            <textarea class="form-control field add-text" placeholder="Текст" name="Text" ng-model="editPost.Text" ng-focus="setFocus('tx')" required></textarea>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary-custom">Сохранить</button>
+    </div>
+</form>

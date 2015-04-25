@@ -1,0 +1,19 @@
+﻿<form method="post" name="logForm" ng-submit="login()">
+    <div class="modal-header">
+        <button ng-click="closePopup()" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Вход</h4>
+        <span ng-show="logForm.Login.$invalid && logForm.Login.$dirty && elem === 'l' " class="span-error">Логин - поле обязательно</span>
+        <span ng-show="logForm.Password.$invalid && logForm.Password.$dirty && elem === 'p'" class="span-error">Пароль - поле обязательно</span>
+    </div>
+    <div class="modal-body">
+        <div class="form-group pos-rel">
+            <input class="form-control field" placeholder="Логин" name="Login" ng-model="Login" ng-focus="setFocus('l')" required autofocus />
+        </div>
+        <div class="form-group pos-rel">
+            <input class="form-control field" type="password" placeholder="Пароль" name="Password" ng-model="Password" ng-focus="setFocus('p')" required />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" ng-disabled="logForm.$invalid" class="btn btn-primary-custom">Войти</button>
+    </div>
+</form>

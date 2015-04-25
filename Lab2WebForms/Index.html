@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+
+<html data-ng-app="Billboard">
+<head runat="server">
+    <base href="/">
+    <link href="Content/Css/bootstrap.css" rel="stylesheet" />
+    <link href="Content/Css/custom.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body data-ng-controller="RootCtrl" ng-cloak>
+    <header>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/racka">Billboard</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input data-ng-change="search()" type="text" data-ng-model="query" class="form-control" placeholder="Поиск">
+                        </div>
+                        <button type="submit" data-ng-click="search('go')" class="btn btn-default">Поиск</button>
+                    </form>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <div class="cntrl-membership">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-form navbar-right">
+                        <p data-ng-if="!isLogged" class="navbar-text"><a href="/registration" class="navbar-link">Регистрация</a></p>
+                        <p data-ng-if="!isLogged" class="navbar-text"><a href="/login" class="navbar-link">Войти</a></p>
+                        <p data-ng-if="isLogged" class="navbar-text"><a href="/friends" class="navbar-link">Друзья</a></p>
+                        <p data-ng-if="isLogged" class="navbar-text"><a href="javascript:void(0)" onclick="window.location.href = '/Partials/Add.aspx'" class="navbar-link">Добавить пост</a></p>
+                        <p data-ng-if="isLogged" class="navbar-text"><a data-ng-click="logout()" href="javascript:void(0)" class="navbar-link">Выйти</a></p>
+                    </div>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div ng-view></div>
+    </div>
+
+    <alert class="ng-cloak form-alert" ng-if="isAlert" type="{{alert.type}}" ng-bind="alert.msg"></alert>
+
+    <script src="Content/Js/jquery-1.11.1.js"></script>
+    <script src="Content/Js/bootstrap.js"></script>
+
+    <script src="Content/Js/angular.js"></script>
+    <script src="Content/Js/angular-route.js"></script>
+    <script src="Content/Js/angular-resource.js"></script>
+    <script src="Content/Js/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="Content/Js/moment.js"></script>
+    <script src="Content/Js/moment-with-locales.js"></script>
+    <script src="Content/App/app.js"></script>
+    <script src="Content/App/Controllers/root.js"></script>
+    <script src="Content/App/Controllers/welcome.js"></script>
+    <script src="Content/App/Controllers/register.js"></script>
+    <script src="Content/App/Directives/repeatPassword.js"></script>
+    <script src="Content/App/Services/auth.js"></script>
+    <script src="Content/App/Controllers/login.js"></script>
+    <script src="Content/App/Controllers/ad.js"></script>
+    <script src="Content/App/Controllers/add.js"></script>
+    <script src="Content/App/Services/manager.js"></script>
+    <script src="Content/App/Filters/fromNow.js"></script>
+    <script src="Content/App/Controllers/friends.js"></script>
+    <script src="Content/App/Controllers/friend.js"></script>
+
+</body>
+</html>
+
